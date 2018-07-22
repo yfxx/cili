@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciliweb.dao.AccountRelationMapper">
+  <resultMap id="BaseResultMap" type="com.ciliweb.domain.AccountRelation">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <id column="follower_id" jdbcType="BIGINT" property="followerId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from account_relation
+    where user_id = #{userId,jdbcType=BIGINT}
+      and follower_id = #{followerId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ciliweb.domain.AccountRelation">
+    insert into account_relation (user_id, follower_id, update_time
+      )
+    values (#{userId,jdbcType=BIGINT}, #{followerId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ciliweb.domain.AccountRelation">
+    update account_relation
+    set update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+      and follower_id = #{followerId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select user_id, follower_id, update_time
+    from account_relation
+    where user_id = #{userId,jdbcType=BIGINT}
+      and follower_id = #{followerId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, follower_id, update_time
+    from account_relation
+  </select>
+</mapper>

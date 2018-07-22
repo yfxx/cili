@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciliweb.dao.ChatRecordMapper">
+  <resultMap id="BaseResultMap" type="com.ciliweb.domain.ChatRecord">
+    <id column="chat_id" jdbcType="BIGINT" property="chatId" />
+    <result column="sell_user_id" jdbcType="BIGINT" property="sellUserId" />
+    <result column="buy_user_id" jdbcType="BIGINT" property="buyUserId" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="cost_coins" jdbcType="INTEGER" property="costCoins" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from chat_record
+    where chat_id = #{chatId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ciliweb.domain.ChatRecord">
+    insert into chat_record (chat_id, sell_user_id, buy_user_id, 
+      start_time, end_time, cost_coins
+      )
+    values (#{chatId,jdbcType=BIGINT}, #{sellUserId,jdbcType=BIGINT}, #{buyUserId,jdbcType=BIGINT}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{costCoins,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ciliweb.domain.ChatRecord">
+    update chat_record
+    set sell_user_id = #{sellUserId,jdbcType=BIGINT},
+      buy_user_id = #{buyUserId,jdbcType=BIGINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      cost_coins = #{costCoins,jdbcType=INTEGER}
+    where chat_id = #{chatId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select chat_id, sell_user_id, buy_user_id, start_time, end_time, cost_coins
+    from chat_record
+    where chat_id = #{chatId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select chat_id, sell_user_id, buy_user_id, start_time, end_time, cost_coins
+    from chat_record
+  </select>
+</mapper>

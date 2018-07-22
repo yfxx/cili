@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciliweb.dao.MediaFileMapper">
+  <resultMap id="BaseResultMap" type="com.ciliweb.domain.MediaFile">
+    <id column="file_id" jdbcType="BIGINT" property="fileId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="size" jdbcType="BIGINT" property="size" />
+    <result column="blurred" jdbcType="INTEGER" property="blurred" />
+    <result column="updateTime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="thumb_origin_url" jdbcType="VARCHAR" property="thumbOriginUrl" />
+    <result column="origin_url" jdbcType="VARCHAR" property="originUrl" />
+    <result column="thumb_blur_url" jdbcType="VARCHAR" property="thumbBlurUrl" />
+    <result column="blur_url" jdbcType="VARCHAR" property="blurUrl" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from media_file
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ciliweb.domain.MediaFile">
+    insert into media_file (file_id, user_id, type, 
+      size, blurred, updateTime, 
+      status, thumb_origin_url, origin_url, 
+      thumb_blur_url, blur_url)
+    values (#{fileId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
+      #{size,jdbcType=BIGINT}, #{blurred,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{thumbOriginUrl,jdbcType=VARCHAR}, #{originUrl,jdbcType=VARCHAR}, 
+      #{thumbBlurUrl,jdbcType=VARCHAR}, #{blurUrl,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ciliweb.domain.MediaFile">
+    update media_file
+    set user_id = #{userId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      size = #{size,jdbcType=BIGINT},
+      blurred = #{blurred,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      thumb_origin_url = #{thumbOriginUrl,jdbcType=VARCHAR},
+      origin_url = #{originUrl,jdbcType=VARCHAR},
+      thumb_blur_url = #{thumbBlurUrl,jdbcType=VARCHAR},
+      blur_url = #{blurUrl,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select file_id, user_id, type, size, blurred, updateTime, status, thumb_origin_url, 
+    origin_url, thumb_blur_url, blur_url
+    from media_file
+    where file_id = #{fileId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select file_id, user_id, type, size, blurred, updateTime, status, thumb_origin_url, 
+    origin_url, thumb_blur_url, blur_url
+    from media_file
+  </select>
+</mapper>

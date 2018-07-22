@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciliweb.dao.TradeMapper">
+  <resultMap id="BaseResultMap" type="com.ciliweb.domain.Trade">
+    <id column="trade_id" jdbcType="VARCHAR" property="tradeId" />
+    <result column="thrid_trade_no" jdbcType="VARCHAR" property="thridTradeNo" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="timestamp" jdbcType="TIMESTAMP" property="timestamp" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="receipt_amount" jdbcType="DECIMAL" property="receiptAmount" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from trade
+    where trade_id = #{tradeId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ciliweb.domain.Trade">
+    insert into trade (trade_id, thrid_trade_no, user_id, 
+      timestamp, total_amount, receipt_amount, 
+      channel, status)
+    values (#{tradeId,jdbcType=VARCHAR}, #{thridTradeNo,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
+      #{timestamp,jdbcType=TIMESTAMP}, #{totalAmount,jdbcType=DECIMAL}, #{receiptAmount,jdbcType=DECIMAL}, 
+      #{channel,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ciliweb.domain.Trade">
+    update trade
+    set thrid_trade_no = #{thridTradeNo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      timestamp = #{timestamp,jdbcType=TIMESTAMP},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      receipt_amount = #{receiptAmount,jdbcType=DECIMAL},
+      channel = #{channel,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where trade_id = #{tradeId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select trade_id, thrid_trade_no, user_id, timestamp, total_amount, receipt_amount, 
+    channel, status
+    from trade
+    where trade_id = #{tradeId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select trade_id, thrid_trade_no, user_id, timestamp, total_amount, receipt_amount, 
+    channel, status
+    from trade
+  </select>
+</mapper>

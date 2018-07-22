@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ciliweb.dao.AccountTestMapper">
+  <resultMap id="BaseResultMap" type="com.ciliweb.domain.AccountTest">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="chat_minu_num" jdbcType="INTEGER" property="chatMinuNum" />
+    <result column="fans_num" jdbcType="INTEGER" property="fansNum" />
+    <result column="attention_num" jdbcType="INTEGER" property="attentionNum" />
+    <result column="coin_purse" jdbcType="INTEGER" property="coinPurse" />
+    <result column="regdate" jdbcType="TIMESTAMP" property="regdate" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="diamond" jdbcType="INTEGER" property="diamond" />
+    <result column="alipay_name" jdbcType="VARCHAR" property="alipayName" />
+    <result column="alipay_login_account" jdbcType="VARCHAR" property="alipayLoginAccount" />
+    <result column="alipay_account" jdbcType="VARCHAR" property="alipayAccount" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="div_pre" jdbcType="DECIMAL" property="divPre" />
+    <result column="price_minu" jdbcType="VARCHAR" property="priceMinu" />
+    <result column="access_pre" jdbcType="DECIMAL" property="accessPre" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="chat_num" jdbcType="INTEGER" property="chatNum" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from account
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ciliweb.domain.AccountTest">
+    insert into account (user_id, nick_name, password, 
+      avatar_url, birthday, gender, 
+      introduction, phone_no, email, 
+      chat_minu_num, fans_num, attention_num, 
+      coin_purse, regdate, status, 
+      cover_url, role, diamond, 
+      alipay_name, alipay_login_account, alipay_account, 
+      real_name, id_card, div_pre, 
+      price_minu, access_pre, address, 
+      chat_num)
+    values (#{userId,jdbcType=BIGINT}, #{nickName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{avatarUrl,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{chatMinuNum,jdbcType=INTEGER}, #{fansNum,jdbcType=INTEGER}, #{attentionNum,jdbcType=INTEGER}, 
+      #{coinPurse,jdbcType=INTEGER}, #{regdate,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{coverUrl,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{diamond,jdbcType=INTEGER}, 
+      #{alipayName,jdbcType=VARCHAR}, #{alipayLoginAccount,jdbcType=VARCHAR}, #{alipayAccount,jdbcType=VARCHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{divPre,jdbcType=DECIMAL}, 
+      #{priceMinu,jdbcType=VARCHAR}, #{accessPre,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR}, 
+      #{chatNum,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ciliweb.domain.AccountTest">
+    update account
+    set nick_name = #{nickName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      chat_minu_num = #{chatMinuNum,jdbcType=INTEGER},
+      fans_num = #{fansNum,jdbcType=INTEGER},
+      attention_num = #{attentionNum,jdbcType=INTEGER},
+      coin_purse = #{coinPurse,jdbcType=INTEGER},
+      regdate = #{regdate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      cover_url = #{coverUrl,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      diamond = #{diamond,jdbcType=INTEGER},
+      alipay_name = #{alipayName,jdbcType=VARCHAR},
+      alipay_login_account = #{alipayLoginAccount,jdbcType=VARCHAR},
+      alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      div_pre = #{divPre,jdbcType=DECIMAL},
+      price_minu = #{priceMinu,jdbcType=VARCHAR},
+      access_pre = #{accessPre,jdbcType=DECIMAL},
+      address = #{address,jdbcType=VARCHAR},
+      chat_num = #{chatNum,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select user_id, nick_name, password, avatar_url, birthday, gender, introduction, 
+    phone_no, email, chat_minu_num, fans_num, attention_num, coin_purse, regdate, status, 
+    cover_url, role, diamond, alipay_name, alipay_login_account, alipay_account, real_name, 
+    id_card, div_pre, price_minu, access_pre, address, chat_num
+    from account
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, nick_name, password, avatar_url, birthday, gender, introduction, 
+    phone_no, email, chat_minu_num, fans_num, attention_num, coin_purse, regdate, status, 
+    cover_url, role, diamond, alipay_name, alipay_login_account, alipay_account, real_name, 
+    id_card, div_pre, price_minu, access_pre, address, chat_num
+    from account
+  </select>
+</mapper>

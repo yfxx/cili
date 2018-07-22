@@ -33,7 +33,7 @@
         </javaTypeResolver>
 
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.liyashe.domain" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.ciliweb.domain" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -48,43 +48,33 @@
                 type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-       <javaClientGenerator type="XMLMAPPER" targetPackage="com.liyashe.dao" targetProject="src/main/java">
+       <javaClientGenerator type="XMLMAPPER" targetPackage="com.ciliweb.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
        </javaClientGenerator>
 
         <!--生成对应表及类名
         去掉Mybatis Generator生成的一堆 example
         -->
-        <!--<table tableName="learn_resource" domainObjectName="LearnResource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-        </table>-->
-<!--        <table tableName="account" domainObjectName="AccountTest" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <!--<table tableName="feed" domainObjectName="Feed" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-       <!-- <table tableName="media_file" domainObjectName="MediaFile" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <!--<table tableName="account_buy_feed" domainObjectName="AccountBuyFeed" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <!--<table tableName="account_relation" domainObjectName="AccountRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <!--<table tableName="inform" domainObjectName="Inform" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="inform_id" sqlStatement="Mysql" identity="true"/>
+
+        <table tableName="account" domainObjectName="AccountTest" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="omnibus" domainObjectName="Omnibus" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="omnibus_id" sqlStatement="Mysql" identity="true"/>
+        <table tableName="authorization" domainObjectName="Authorization" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="omnibus_feed" domainObjectName="OmnibusFeedRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <!--<table tableName="certification_apply" domainObjectName="Certification" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
-        <!--</table>-->
-        <!--<table tableName="trade" domainObjectName="Trade" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-       <!-- <table tableName="trade_cash_withdraw" domainObjectName="CashTrade" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-         <!--<table tableName="account_like_feed" domainObjectName="AccountLikeFeed" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-        </table>-->
-        <table tableName="account_spread" domainObjectName="AccountSpread" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <table tableName="media_file" domainObjectName="MediaFile" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="chat_record" domainObjectName="ChatRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="account_relation" domainObjectName="AccountRelation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="gift" domainObjectName="Gift" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="certification_apply" domainObjectName="Certification" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="trade" domainObjectName="Trade" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="trade_cash_withdraw" domainObjectName="CashTrade" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+         <table tableName="gift_count" domainObjectName="GiftCount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
     </context>
 </generatorConfiguration>
